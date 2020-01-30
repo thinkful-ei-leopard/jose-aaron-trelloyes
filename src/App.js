@@ -5,26 +5,16 @@ import './App.css';
 
 class App extends Component {
   state={
-    store: STORE
+    ...STORE
   }
 
   handleOnDelete = (el) => {
-    console.log('ive been deleted', el)
-    // this.setState({
-    // store: 
-    // })
-    const keyValue = Object.keys(this.state.store.allCards)
-    const cardIndex = keyValue.indexOf(el)
-    console.log(cardIndex)
-    console.log(this.state.store.lists.cardIds)
-    // this.setState({
-    //   state: STORE.lists.splice(cardIndex, 1)
-    // })
+    console.log('ive been deleted', el) 
+    const items = this.state.lists.map(list => ({...list, cardIds: list.cardIds.filter(e => e !== el)}))
+    console.log(items)
     this.setState({
-      state: STORE.lists.forEach(element => element.cardIds.splice(cardIndex, 1))
+      lists: items
     })
-   
-    // keyValue.splice(cardIndex, 1)
   }
 
   handleRandomCard = () => {
@@ -38,13 +28,12 @@ class App extends Component {
           <h1>Trelloyes!</h1>
         </header>
         <div className='App-list'>
-          {STORE.lists.map(list => (
+          {this.state.lists.map(list => (
             <List
               key={list.id}
               header={list.header}
-              cards={list.cardIds.map(id => STORE.allCards[id])}
+              cards={list.cardIds.map(id => this.state.allCards[id])}
               bananas={this.handleOnDelete}
-              // peepeepoopoo={}
             />
           ))}
         </div>
