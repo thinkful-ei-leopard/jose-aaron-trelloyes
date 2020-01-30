@@ -17,8 +17,19 @@ class App extends Component {
     })
   }
 
-  handleRandomCard = () => {
-    console.log('ive been added')
+  handleRandomCard = (etc) => {
+    console.log('ive been added', etc)
+    // const newRandomCard = () => {
+    //   const id = Math.random().toString(36).substring(2, 4)
+    //     + Math.random().toString(36).substring(2, 4);
+    //   return {
+    //     id,
+    //     title: `Random Card ${id}`,
+    //     content: 'lorem ipsum',
+    //   }
+    // }
+
+    // this.setState({})
   }
 
   render() {
@@ -34,6 +45,8 @@ class App extends Component {
               header={list.header}
               cards={list.cardIds.map(id => this.state.allCards[id])}
               bananas={this.handleOnDelete}
+              mangos={this.handleRandomCard}
+              watermelon={list.id}
             />
           ))}
         </div>

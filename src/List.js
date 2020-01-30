@@ -19,7 +19,7 @@ export default function List(props) {
           />
         )}
         <button onClick={() => {
-        props.bananas()
+        props.mangos(props.watermelon)
       }}
           type='button'
           className='List-add-button'
