@@ -14,9 +14,13 @@ export default function List(props) {
             key={card.id}
             title={card.title}
             content={card.content}
+            cardid={card.id}
+            oranges={props.bananas}
           />
         )}
-        <button
+        <button onClick={() => {
+        props.bananas()
+      }}
           type='button'
           className='List-add-button'
         >

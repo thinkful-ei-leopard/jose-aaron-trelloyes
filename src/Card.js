@@ -5,9 +5,10 @@ export default function Card(props) {
   return (
     <div className='Card'>
       <button onClick={() => {
-        props.bananas
+        props.oranges(props.cardid)
       }}
         type='button'
+        cardid={props.id}
       >
         delete
       </button>

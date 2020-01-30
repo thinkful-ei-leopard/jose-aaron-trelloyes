@@ -8,8 +8,23 @@ class App extends Component {
     store: STORE
   }
 
-  handleOnDelete = () => {
-    console.log('ive been deleted')
+  handleOnDelete = (el) => {
+    console.log('ive been deleted', el)
+    // this.setState({
+    // store: 
+    // })
+    const keyValue = Object.keys(this.state.store.allCards)
+    const cardIndex = keyValue.indexOf(el)
+    console.log(cardIndex)
+    console.log(this.state.store.lists.cardIds)
+    // this.setState({
+    //   state: STORE.lists.splice(cardIndex, 1)
+    // })
+    this.setState({
+      state: STORE.lists.forEach(element => element.cardIds.splice(cardIndex, 1))
+    })
+   
+    // keyValue.splice(cardIndex, 1)
   }
 
   handleRandomCard = () => {
@@ -28,7 +43,7 @@ class App extends Component {
               key={list.id}
               header={list.header}
               cards={list.cardIds.map(id => STORE.allCards[id])}
-              bananas={this.handleOnDelete()}
+              bananas={this.handleOnDelete}
               // peepeepoopoo={}
             />
           ))}
