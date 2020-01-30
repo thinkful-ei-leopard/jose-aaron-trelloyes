@@ -1,5 +1,5 @@
 
-export default {
+export const STORE = {
   lists: [
     {
       id: '1',
@@ -38,3 +38,8 @@ export default {
     'm': { id: 'm', title: 'Thirteenth card', content: 'lorem ipsum' },
   },
 }
+
+
+
+
+console.log(STORE)
